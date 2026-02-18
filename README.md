@@ -95,7 +95,10 @@ http://localhost:3000
 
 ```bash
 git clone https://github.com/fandiaspraja/product-management.git
-cd merchant-product-app
+```
+
+```bash
+git clone https://github.com/fandiaspraja/mock-backend.git
 ```
 
 ---
@@ -264,22 +267,3 @@ User sees friendly UI states instead of crashes.
 
 **Fikry Andias Praja**
 Flutter & Android Developer
-
----
-
-## 📌 Notes
-
-This project emphasizes:
-
-✔ System Design
-✔ Architecture
-✔ Data Flow
-✔ Offline Capability
-
-instead of UI polish.
-
----
-
-## ⭐️ If you find this useful
-
-Feel free to give a ⭐️ to this repository!
