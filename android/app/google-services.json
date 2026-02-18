@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "158243860128",
+    "project_id": "ditonton-af728",
+    "storage_bucket": "ditonton-af728.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158243860128:android:3b8b8d2931e8cf96eb23c5",
+        "android_client_info": {
+          "package_name": "com.dicoding.ditonton"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9j9u82CprCx7SYBmq-1PifVjMcPPqcm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158243860128:android:24cf93716c6ca325eb23c5",
+        "android_client_info": {
+          "package_name": "com.example.pmb_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9j9u82CprCx7SYBmq-1PifVjMcPPqcm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158243860128:android:b25b0fdbb88c7b65eb23c5",
+        "android_client_info": {
+          "package_name": "com.fandiaspraja.labamu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9j9u82CprCx7SYBmq-1PifVjMcPPqcm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
