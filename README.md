@@ -94,7 +94,7 @@ http://localhost:3000
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/merchant-product-app.git
+git clone https://github.com/fandiaspraja/product-management.git
 cd merchant-product-app
 ```
 
