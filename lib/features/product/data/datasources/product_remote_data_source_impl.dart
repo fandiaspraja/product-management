@@ -76,8 +76,8 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<ProductEntity> updateProduct(ProductRequest request) async {
     try {
-      final response = await apiClient.post(
-        '/products',
+      final response = await apiClient.put(
+        '/products/${request.id}',
         data: request.toJson(),
       );
 

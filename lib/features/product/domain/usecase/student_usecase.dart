@@ -14,7 +14,7 @@ class StudentUsecase {
   }
 
   Future<Either<Failure, ProductEntity>> updateProduct(ProductRequest request) {
-    return repository.createProduct(request);
+    return repository.updateProduct(request);
   }
 
   Future<Either<Failure, List<ProductEntity>>> getProducts() {

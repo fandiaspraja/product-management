@@ -165,10 +165,14 @@ class _HomePageState extends State<HomePage> {
                           return ProductCard(
                             product: item,
                             onTap: () {
-                              context.push(
-                                DetailPage.ROUTE_NAME,
-                                extra: item.id,
-                              );
+                              context
+                                  .push(DetailPage.ROUTE_NAME, extra: item.id)
+                                  .then((_) {
+                                    /// reload after create
+                                    context.read<ProductBloc>().add(
+                                      ProductsEvent(),
+                                    );
+                                  });
                             },
                           );
                         },

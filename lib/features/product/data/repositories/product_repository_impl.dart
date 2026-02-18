@@ -87,6 +87,8 @@ class ProductRepositoryImpl implements ProductRepository {
   ) async {
     if (await networkInfo.isConnected) {
       try {
+        request.status = "active";
+        request.updatedAt = DateTime.now().toUtc().toIso8601String();
         final result = await remoteDataSource.createProduct(request);
         return Right(result);
       } on BaseException catch (e) {
@@ -129,6 +131,8 @@ class ProductRepositoryImpl implements ProductRepository {
   ) async {
     if (await networkInfo.isConnected) {
       try {
+        request.status = "active";
+        request.updatedAt = DateTime.now().toUtc().toIso8601String();
         final result = await remoteDataSource.updateProduct(request);
         return Right(result);
       } on BaseException catch (e) {

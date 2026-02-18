@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:chucker_flutter/chucker_flutter.dart';
+import 'package:labamu/features/product/domain/entity/product_entity.dart';
 import 'package:labamu/features/product/presentation/pages/update_product_page.dart';
 import 'package:labamu/features/splash/presentation/pages/splash_page.dart';
 import 'package:labamu/features/product/presentation/pages/detail_page.dart';
@@ -61,7 +62,12 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/update-product',
       pageBuilder: (context, state) {
-        return buildPageWithTransition(UpdateProductPage(), state);
+        ProductEntity product = state.extra as ProductEntity;
+
+        return buildPageWithTransition(
+          UpdateProductPage(product: product),
+          state,
+        );
       },
     ),
     GoRoute(

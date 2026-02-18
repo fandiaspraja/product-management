@@ -133,41 +133,38 @@ class _CreateProductPageState extends State<CreateProductPage> {
                     return null;
                   },
                 ),
-                gapH16,
-                BaseDropdownButton(
-                  value: statusController.text.isEmpty
-                      ? null
-                      : statusController.text,
-                  label: "Status",
-                  hintText: "Choose Status",
-                  items: items,
-                  onChanged: (value) {
-                    setState(() {
-                      statusController.text = value ?? "";
-                    });
-                  },
-                  validator: (value) {
-                    if (value == null || value == '') {
-                      return "Error";
-                    }
+                // gapH16,
+                // BaseDropdownButton(
+                //   value: statusController.text.isEmpty
+                //       ? null
+                //       : statusController.text,
+                //   label: "Status",
+                //   hintText: "Choose Status",
+                //   items: items,
+                //   onChanged: (value) {
+                //     setState(() {
+                //       statusController.text = value ?? "";
+                //     });
+                //   },
+                //   validator: (value) {
+                //     if (value == null || value == '') {
+                //       return "Error";
+                //     }
 
-                    return null;
-                  },
-                ),
+                //     return null;
+                //   },
+                // ),
                 gapH24,
                 CustomButtonPrimary(
                   onTap: () {
                     if (nameController.text.isEmpty) {
                       CustomToast.showError(context, "Name can't empty");
                       return;
-                    } else if (descController.text.isEmpty) {
+                    } else if (priceController.text.isEmpty) {
                       CustomToast.showError(context, "Price can't empty");
                       return;
-                    } else if (priceController.text.isEmpty) {
+                    } else if (descController.text.isEmpty) {
                       CustomToast.showError(context, "Description can't empty");
-                      return;
-                    } else if (statusController.text.isEmpty) {
-                      CustomToast.showError(context, "Status can't empty");
                       return;
                     } else {
                       final price = int.tryParse(priceController.text);
@@ -186,22 +183,6 @@ class _CreateProductPageState extends State<CreateProductPage> {
                         CreateProductEvent(request: request),
                       );
                     }
-                    // if (emailController.text.isEmpty) {
-                    //   CustomToast.showError(context, "Email can't empty");
-                    //   return;
-                    // } else if (passwordController.text.isEmpty) {
-                    //   CustomToast.showError(context, "Password can't empty");
-                    //   return;
-                    // } else {
-                    //   context.read<AuthBloc>().add(
-                    //     LoginEvent(
-                    //       email: emailController.text,
-                    //       password: passwordController.text,
-                    //     ),
-                    //   );
-                    // }
-                    // context.go(OtpPage.ROUTE_NAME,
-                    //     extra: isGuest);
                   },
                   title: "Create Products",
                 ),

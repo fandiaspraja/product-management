@@ -9,12 +9,14 @@ import 'package:labamu/core/widgets/base/base_input.dart';
 import 'package:labamu/core/widgets/custom_button_primary.dart';
 import 'package:labamu/core/widgets/custom_outlined_datetime.dart';
 import 'package:labamu/features/product/data/models/product_request.dart';
+import 'package:labamu/features/product/domain/entity/product_entity.dart';
 import 'package:labamu/features/product/presentation/bloc/product_bloc.dart';
 
 class UpdateProductPage extends StatefulWidget {
   static const ROUTE_NAME = '/update-product';
+  final ProductEntity product;
 
-  const UpdateProductPage({super.key});
+  const UpdateProductPage({super.key, required this.product});
 
   @override
   State<UpdateProductPage> createState() => _UpdateProductPageState();
@@ -38,6 +40,11 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
   @override
   void initState() {
     super.initState();
+
+    nameController.text = widget.product.name!;
+    priceController.text = widget.product.price.toString();
+    descController.text = widget.product.description!;
+    statusController.text = widget.product.status!;
   }
 
   String generateUpdatedAt() {
@@ -132,41 +139,18 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                     return null;
                   },
                 ),
-                gapH16,
-                BaseDropdownButton(
-                  value: statusController.text.isEmpty
-                      ? null
-                      : statusController.text,
-                  label: "Status",
-                  hintText: "Choose Status",
-                  items: items,
-                  onChanged: (value) {
-                    setState(() {
-                      statusController.text = value ?? "";
-                    });
-                  },
-                  validator: (value) {
-                    if (value == null || value == '') {
-                      return "Error";
-                    }
 
-                    return null;
-                  },
-                ),
                 gapH24,
                 CustomButtonPrimary(
                   onTap: () {
                     if (nameController.text.isEmpty) {
                       CustomToast.showError(context, "Name can't empty");
                       return;
-                    } else if (descController.text.isEmpty) {
-                      CustomToast.showError(context, "Description can't empty");
-                      return;
                     } else if (priceController.text.isEmpty) {
                       CustomToast.showError(context, "Price can't empty");
                       return;
-                    } else if (statusController.text.isEmpty) {
-                      CustomToast.showError(context, "Status can't empty");
+                    } else if (descController.text.isEmpty) {
+                      CustomToast.showError(context, "Description can't empty");
                       return;
                     } else {
                       final price = int.tryParse(priceController.text);
@@ -175,6 +159,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                         return;
                       }
                       ProductRequest request = ProductRequest(
+                        id: widget.product.id,
                         name: nameController.text,
                         price: price,
                         description: descController.text,
@@ -201,7 +186,7 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
                     // context.go(OtpPage.ROUTE_NAME,
                     //     extra: isGuest);
                   },
-                  title: "Create Products",
+                  title: "Update Products",
                 ),
               ],
             ),

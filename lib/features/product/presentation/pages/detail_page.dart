@@ -117,7 +117,9 @@ class _DetailPageState extends State<DetailPage> {
       floatingActionButton: FloatingActionButton(
         tooltip: "Edit Products",
         onPressed: () {
-          context.push(UpdateProductPage.ROUTE_NAME);
+          context.push(UpdateProductPage.ROUTE_NAME, extra: products).then((_) {
+            context.read<ProductBloc>().add(DetailProductEvent(id: widget.id));
+          });
         },
         child: const Icon(Icons.edit),
       ),
