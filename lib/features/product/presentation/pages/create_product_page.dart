@@ -212,42 +212,4 @@ class _CreateProductPageState extends State<CreateProductPage> {
       ),
     );
   }
-
-  Future<void> selectDate(BuildContext context) async {
-    final now = DateTime.now();
-
-    final picked = await showDatePicker(
-      context: context,
-
-      /// default tanggal
-      initialDate: now,
-
-      /// batas paling awal
-      firstDate: DateTime(1950),
-
-      /// tidak boleh masa depan
-      lastDate: now,
-
-      builder: (context, child) {
-        return Theme(
-          data: ThemeData.light().copyWith(
-            colorScheme: const ColorScheme.light(
-              primary: primarySecond,
-              onPrimary: white,
-            ),
-          ),
-          child: child!,
-        );
-      },
-    );
-
-    if (picked != null) {
-      setState(() {
-        _selectedDate = picked;
-
-        descController.text =
-            "${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}";
-      });
-    }
-  }
 }
